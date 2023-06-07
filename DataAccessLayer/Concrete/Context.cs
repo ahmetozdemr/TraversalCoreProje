@@ -15,7 +15,7 @@ namespace DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=AHMET-PC;Database=traversalDB;Trusted_Connection=True;TrustServerCertificate =true;");
+            optionsBuilder.UseSqlServer("Server=AHMET-PC;Database=TraversalCoreDB;Trusted_Connection=True;TrustServerCertificate =true;");
         }
 
 
