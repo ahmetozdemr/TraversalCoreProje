@@ -6,11 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EntityLayer.Concrete.Home;
+using EntityLayer.Concrete.Layout;
 
 namespace DataAccessLayer.EntityFramework
 {
-   public class EfNewsletterDal : GenericRepository<Newsletter>, INewsLetterDal
+    public class EfNewsletterDal : GenericRepository<Newsletter>, INewsLetterDal
     {
     }
 }

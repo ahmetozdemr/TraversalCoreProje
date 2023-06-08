@@ -6,9 +6,11 @@ namespace TraversalMvcUI.ViewComponents.Default
 {
     public class _SubAbout : ViewComponent
     {
+        private SubAboutManager subAboutManager = new SubAboutManager(new EfSubAboutDal());
         public IViewComponentResult Invoke()
         {
-            return View();
+            var values = subAboutManager.TGetList();
+            return View(values);
         }
 
     }

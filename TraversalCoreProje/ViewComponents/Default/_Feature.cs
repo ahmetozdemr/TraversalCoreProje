@@ -7,9 +7,11 @@ namespace TraversalMvcUI.ViewComponents.Default
 {
     public class _Feature : ViewComponent
     {
+        private FeatureManager featureManager = new FeatureManager(new EfFeatureDal());
         public IViewComponentResult Invoke()
         {
-            return View();
+            var values = featureManager.TGetList();
+            return View(values);
         }
     }
 }

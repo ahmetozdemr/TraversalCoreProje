@@ -6,11 +6,11 @@ namespace TraversalMvcUI.ViewComponents.Default
 {
     public class _PopularDestination : ViewComponent
     {
-
+        private DestinationManager destinationManager = new DestinationManager(new EfDestinationDal());
         public IViewComponentResult Invoke()
         {
-      
-            return View();
+            var values = destinationManager.TGetList();
+            return View(values);
         }
     }
 }

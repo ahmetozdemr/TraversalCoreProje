@@ -6,11 +6,11 @@ namespace TraversalMvcUI.ViewComponents.Default
 {
     public class _Testimonial : ViewComponent
     {
-
+        private TestimonialManager testimonialManager = new TestimonialManager(new EfTestimonialDal());
         public IViewComponentResult Invoke()
         {
-
-            return View();
+            var values = testimonialManager.TGetList();
+            return View(values);
         }
     }
 }

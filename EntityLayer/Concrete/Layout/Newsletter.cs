@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EntityLayer.Concrete.Home
+namespace EntityLayer.Concrete.Layout
 {
     public class Newsletter
     {
