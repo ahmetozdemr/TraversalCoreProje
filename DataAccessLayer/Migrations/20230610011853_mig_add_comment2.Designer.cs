@@ -4,6 +4,7 @@ using DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20230610011853_mig_add_comment2")]
+    partial class mig_add_comment2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -181,12 +184,7 @@ namespace DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DestinationID")
-                        .HasColumnType("int");
-
                     b.HasKey("CommentID");
-
-                    b.HasIndex("DestinationID");
 
                     b.ToTable("Comments");
                 });
@@ -337,22 +335,6 @@ namespace DataAccessLayer.Migrations
                     b.HasKey("NewsletterID");
 
                     b.ToTable("Newsletters");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.Destination.Comment", b =>
-                {
-                    b.HasOne("EntityLayer.Concrete.Destination.Destination", "Destination")
-                        .WithMany("Comments")
-                        .HasForeignKey("DestinationID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Destination");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.Destination.Destination", b =>
-                {
-                    b.Navigation("Comments");
                 });
 #pragma warning restore 612, 618
         }

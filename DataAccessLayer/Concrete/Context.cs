@@ -19,7 +19,6 @@ namespace DataAccessLayer.Concrete
             optionsBuilder.UseSqlServer("Server=AHMET-PC;Database=TraversalCoreDB;Trusted_Connection=True;TrustServerCertificate =true;");
         }
 
-
         public DbSet<About> Abouts { get; set; }
         public DbSet<About2> About2s { get; set; }
         public DbSet<Contact> Contacts { get; set; }
@@ -29,6 +28,7 @@ namespace DataAccessLayer.Concrete
         public DbSet<Newsletter> Newsletters { get; set; }
         public DbSet<SubAbout> SubAbouts { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -43,6 +43,11 @@ namespace DataAccessLayer.Concrete
             modelBuilder.Entity<SubAbout>().HasKey(h => h.SubAboutID);
             modelBuilder.Entity<Testimonial>().HasKey(h => h.TestimonialID);
 
+            modelBuilder.Entity<Comment>().HasKey(c => c.CommentID);
+            modelBuilder.Entity<Comment>()
+                .HasOne(i => i.Destination)
+                .WithMany(i => i.Comments)
+                .HasForeignKey(i => i.DestinationID);
         }
     }
 }

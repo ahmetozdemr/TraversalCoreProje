@@ -1,4 +1,27 @@
-﻿<header id="site-header" class="fixed-top">
+﻿@{
+    string home = "";
+    string about = "";
+    string destination = "";
+}
+
+@switch (ViewData["Title"])
+{
+    case "DestinationDetails":
+        destination = "active";
+        break;
+    case "Home":
+        home = "active";
+        break;
+    case "Destination":
+        destination = "active";
+        break;
+    case "About":
+        about = "active";
+        break;
+}
+
+
+<header id="site-header" class="fixed-top">
     <div class="container">
         <nav class="navbar navbar-expand-lg stroke">
             <h1>
@@ -19,16 +42,16 @@
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item @home">
                         <a class="nav-link" href="/Default/Index">Home <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item @about">
                         <a class="nav-link" href="/About/Index">About</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item @destination">
                         <a class="nav-link" href="/Destination/Index">Destinations</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item ">
                         <a class="nav-link" href="pricing.html">Packages</a>
                     </li>
                     <li class="nav-item dropdown">
