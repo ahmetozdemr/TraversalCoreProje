@@ -2,7 +2,7 @@
 
 İlk aşamada Business,Entity,Dataaccess ve Presentation katmanları oluşturuluyor
 
-Veritabanı kurulumu için gerekli paketler;
+#Veritabanı kurulumu için gerekli paketler;
 
 * Microsoft.EntityFrameworkCore
 * Microsoft.EntityFrameworkCore.SqlServer
@@ -15,7 +15,7 @@ Veritabanı kurulumu için gerekli paketler;
 
 Veritabanı bağlantısı için gerekli bağlantılar
 
-Connection string;
+#Connection string;
 
 * Server=myServerAddress;Database=myDataBase;Trusted_Connection=True;TrustServerCertificate =true;
 
@@ -30,6 +30,11 @@ Connection string;
 
 
 Dataaccess katmanımızda Generic interface ve Repository sınıflarımızı oluşturuyoruz
+
+#Idenditiy paketleri
+
+* Microsoft.AspNetCore.Identity.EntityFrameworkCore
+* Microsoft.AspNetCore.Identity
 
 
 

@@ -7,12 +7,14 @@ using EntityLayer.Concrete.About;
 using EntityLayer.Concrete.Contact;
 using EntityLayer.Concrete.Destination;
 using EntityLayer.Concrete.Home;
+using EntityLayer.Concrete.Idendity;
 using EntityLayer.Concrete.Layout;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccessLayer.Concrete
 {
-    public class Context : DbContext
+    public class Context : IdentityDbContext<AppUser, AppRole, int>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -33,6 +35,9 @@ namespace DataAccessLayer.Concrete
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<About>().HasKey(a => a.AboutID);
             modelBuilder.Entity<About2>().HasKey(a => a.About2ID);
             modelBuilder.Entity<Contact>().HasKey(h => h.ContactID);
