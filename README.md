@@ -31,7 +31,7 @@ Veritabanı bağlantısı için gerekli bağlantılar
 
 Dataaccess katmanımızda Generic interface ve Repository sınıflarımızı oluşturuyoruz
 
-# Idenditiy paketleri
+# Identity paketleri
 
 * Microsoft.AspNetCore.Identity.EntityFrameworkCore
 * Microsoft.AspNetCore.Identity
