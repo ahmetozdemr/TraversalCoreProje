@@ -32,7 +32,8 @@ namespace TraversalCoreProje.Controllers
                 Email = p.Mail,
                 UserName = p.Username,
                 Gender = "Erkek",
-                ImageUrl = "/Login_v1/images/img-01.png"
+                ImageUrl = "/Login_v1/images/img-01.png",
+
             };
             if (p.Password == p.ConfirmPassword)
             {
