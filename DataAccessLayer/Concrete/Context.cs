@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EntityLayer.Concrete;
 using EntityLayer.Concrete.About;
 using EntityLayer.Concrete.Contact;
 using EntityLayer.Concrete.Destination;
@@ -31,6 +32,7 @@ namespace DataAccessLayer.Concrete
         public DbSet<SubAbout> SubAbouts { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -53,6 +55,12 @@ namespace DataAccessLayer.Concrete
                 .HasOne(i => i.Destination)
                 .WithMany(i => i.Comments)
                 .HasForeignKey(i => i.DestinationID);
+
+            modelBuilder.Entity<Reservation>().HasKey(r => r.ReservationID);
+            modelBuilder.Entity<Reservation>()
+                .HasOne(a => a.AppUser)
+                .WithMany(r => r.Reservations)
+                .HasForeignKey(i => i.AppUserId);
         }
     }
 }
