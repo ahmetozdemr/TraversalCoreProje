@@ -39,7 +39,7 @@ namespace TraversalCoreProje.Areas.Member.Controllers
         {
             p.AppUserId = 3;
             p.Status = "Onay bekliyor";
-            p.Description = "Eklendi";
+            //p.ReservationID =DateTime.Now();
             reservationManager.TAdd(p);
             return RedirectToAction("MyCurrentReservation");
         }
